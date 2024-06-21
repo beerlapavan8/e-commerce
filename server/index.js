@@ -2,7 +2,11 @@ const express = require('express')
 const port = 5000;
 const mongoose = require('mongoose');
 const app = express();
-const cors = require('cors')
+app.use(cors({
+    origin: "*",
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  }));
 const stripe = require("stripe")('sk_test_51PRTW4BhTY1CGwmEM2UzytIAz0orcbj7NphVhtmsYOniDG5I01XqlXYgsoUI3hIHiwz7AiHet9oyjvHRo1ZA3HFR000YMiYG0B');
 
 app.use(cors());
