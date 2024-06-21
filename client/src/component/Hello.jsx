@@ -81,7 +81,7 @@ const[address,setAddress]=useState([]);
     const headers = {
       "Content-Type": "application/json"
     }
-    const response = await fetch("http://localhost:5000/create-checkout-session", {
+    const response = await fetch("https://e-commerce-phok.onrender.com/create-checkout-session", {
       method: "POST",
       headers: headers,
       body: JSON.stringify(body)
