@@ -136,14 +136,14 @@ const[address,setAddress]=useState([]);
           console.log(result.error.message);
         }
 
-        const resp = await axios.post("http://localhost:5000/orderpost", {
+        const resp = await axios.post("https://e-commerce-phok.onrender.com/orderpost", {
           cartItems
         });
 
         for (const item of cartItems) {
           console.log(item._id);
           const val = item._id;
-          await axios.delete(`http://localhost:5000/deletecartitems/${val}`);
+          await axios.delete(`https://e-commerce-phok.onrender.com/deletecartitems/${val}`);
         }
     } catch (error) {
         console.error("Error during payment process:", error);
