@@ -391,8 +391,8 @@ app.post("/create-checkout-session", async (req, res) => {
             line_items: lineItems,
             mode: "payment",
             
-            success_url: "http://localhost:3000/delivery",
-            cancel_url: "http://localhost:3000/product",
+            success_url: "https://e-commerce-three-coral.vercel.app//delivery",
+            cancel_url: "https://e-commerce-three-coral.vercel.app//product",
         });
 
         res.json({ id: session.id });
