@@ -6,7 +6,7 @@ const Collections = () => {
   useEffect(()=>{
     async function fetchadata(){
       try {
-        const response = await axios.get("http://localhost:5000/productsget")
+        const response = await axios.get("https://e-commerce-phok.onrender.com/productsget")
         const vals = response.data;
         setCollections(vals);
         // console.log(response.data);

@@ -12,7 +12,7 @@ const ProductList = () => {
         {
             
             try {
-                const response = await axios.get("http://localhost:5000/productsget")
+                const response = await axios.get("https://e-commerce-phok.onrender.com/productsget")
                 const str = response.data
                 setUsers(str);
                 // console.log(str)

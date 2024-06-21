@@ -10,7 +10,7 @@ const Users = () => {
         {
             
             try {
-                const response = await axios.get("http://localhost:5000/getregistration")
+                const response = await axios.get("https://e-commerce-phok.onrender.com/getregistration")
                 const str = response.data
                 setUsers(str.valuess);
             } catch (error) {

@@ -9,7 +9,7 @@ const UserSub = (props) => {
       const val =props.userid
       console.log(val)
       try {
-        const response = await axios.delete(`http://localhost:5000/registrationdelete/${val}`)
+        const response = await axios.delete(`https://e-commerce-phok.onrender.com/registrationdelete/${val}`)
         console.log(response.data)
         props.removeItem(val);
       } catch (error) {

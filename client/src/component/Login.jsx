@@ -184,7 +184,7 @@ const Login = () => {
     console.log(loginval);
 
     try {
-      const response = await axios.get(`http://localhost:5000/getlogin1/${loginval.username}`);
+      const response = await axios.get(`https://e-commerce-phok.onrender.com/getlogin1/${loginval.username}`);
       const storedvalss = response.data;
 
       if (storedvalss.username === loginval.username && storedvalss.password === loginval.password) {

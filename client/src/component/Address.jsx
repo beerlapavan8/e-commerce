@@ -25,7 +25,7 @@ const Address = () => {
     {
         e.preventDefault()
         try {
-            const resp = await axios.post("http://localhost:5000/addresspost",values)
+            const resp = await axios.post("https://e-commerce-phok.onrender.com/addresspost",values)
         } catch (error) {
             console.log(error);
         }

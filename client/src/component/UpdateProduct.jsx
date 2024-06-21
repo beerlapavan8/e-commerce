@@ -16,7 +16,7 @@ const UpdateProduct = () => {
     useEffect(()=>{
         const fetchdata = async()=>{
             try {
-                const response=await axios.get(`http://localhost:5000/productgetone/${id}`)
+                const response=await axios.get(`https://e-commerce-phok.onrender.com/productgetone/${id}`)
                 setValues(response.data)
                 //console.log(response.data);
             } catch (error) {
@@ -30,7 +30,7 @@ const UpdateProduct = () => {
     {
         e.preventDefault();
         try {
-            const reponse = await axios.put(`http://localhost:5000/productupdate/${id}`,values)
+            const reponse = await axios.put(`https://e-commerce-phok.onrender.com/productupdate/${id}`,values)
             console.log(reponse.data)
         } catch (error) {
             console.log(error)

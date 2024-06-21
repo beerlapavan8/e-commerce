@@ -7,7 +7,7 @@ const ProductSubList = (props) => {
   {
     try {
       const val =e.currentTarget.value;
-      const response = await axios.delete(`http://localhost:5000/productdelete/${val}`)
+      const response = await axios.delete(`https://e-commerce-phok.onrender.com/productdelete/${val}`)
       console.log(response);
       props.removeItem(val);
     } catch (error) {

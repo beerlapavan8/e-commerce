@@ -24,7 +24,7 @@ const Register = () => {
         e.preventDefault();
         console.log(userVal);
         try {
-            const response = await axios.post("http://localhost:5000/postregistration",{
+            const response = await axios.post("https://e-commerce-phok.onrender.com/postregistration",{
                 username:userVal.username,
                 email:userVal.email,
                 password:userVal.password

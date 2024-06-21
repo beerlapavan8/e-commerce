@@ -23,7 +23,7 @@ const[address,setAddress]=useState([]);
     {
       //const user = localStorage.getItem("username");
       try {
-        const resp = await axios.get(`http://localhost:5000/addressget/${val}`)
+        const resp = await axios.get(`https://e-commerce-phok.onrender.com/addressget/${val}`)
         const data =resp.data
        // console.log(data)
         setAddress(resp.data);
@@ -36,7 +36,7 @@ const[address,setAddress]=useState([]);
   useEffect(() => {
     async function getDetails() {
       try {
-        const response = await axios.get(`http://localhost:5000/cartdetailsgetbyusername/${val}`);
+        const response = await axios.get(`https://e-commerce-phok.onrender.com/cartdetailsgetbyusername/${val}`);
         
         const valss = response.data;
         setItems(valss);

@@ -9,7 +9,7 @@ const AddressDisplay = () => {
     {
       const user = localStorage.getItem("username");
       try {
-        const resp = await axios.get(`http://localhost:5000/addressget/${user}`)
+        const resp = await axios.get(`https://e-commerce-phok.onrender.com/addressget/${user}`)
         const data =resp.data
        // console.log(data)
         setAddress(resp.data);

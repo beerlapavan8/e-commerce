@@ -11,7 +11,7 @@ const Cart = () => {
   useEffect(() => {
     async function getDetails() {
       try {
-        const response = await axios.get(`http://localhost:5000/cartdetailsgetbyusername/${val}`);
+        const response = await axios.get(`https://e-commerce-phok.onrender.com/cartdetailsgetbyusername/${val}`);
         const valss = response.data;
         setItems(valss);
       } catch (error) {

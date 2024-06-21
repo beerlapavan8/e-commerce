@@ -14,7 +14,7 @@ const Cards = (props) => {
         console.log(props);
        
         try {
-            const response = await axios.post("http://localhost:5000/cartdetailspost",{
+            const response = await axios.post("https://e-commerce-phok.onrender.com/cartdetailspost",{
                 productid:props.id,
                 productname:props.name,
                 productprice:props.price,

@@ -32,7 +32,7 @@ const UpdateAddress = () => {
     {
       //const user = localStorage.getItem("username");
       try {
-        const resp = await axios.get(`http://localhost:5000/addressgetbyid/${id}`)
+        const resp = await axios.get(`https://e-commerce-phok.onrender.com/addressgetbyid/${id}`)
         const data =resp.data
        // console.log(data)
        setAddress(data)
@@ -47,7 +47,7 @@ const UpdateAddress = () => {
     {
         e.preventDefault()
         try {
-            const response = await axios.put(`http://localhost:5000/addresspost/${id}`,values)
+            const response = await axios.put(`https://e-commerce-phok.onrender.com/addresspost/${id}`,values)
             console.log(`update values${values}`)
         } catch (error) {
             console.log(error);            

@@ -10,7 +10,7 @@ const Delivery = () => {
     {
       try {
         //const response = await axios.get("http://localhost:5000/cartdetailsget");
-         const response = await axios.get(`http://localhost:5000/orderdetailsbyusernmae/${vall}`);
+         const response = await axios.get(`https://e-commerce-phok.onrender.com/orderdetailsbyusernmae/${vall}`);
         const valss = response.data;
         setItems(valss);
         //console.log(response.data.vals);

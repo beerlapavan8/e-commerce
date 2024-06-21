@@ -11,7 +11,7 @@ const CartCard = () => {
       async function getDetails()
       {
         try {
-          const response = await axios.get("http://localhost:5000/cartdetailsget");
+          const response = await axios.get("https://e-commerce-phok.onrender.com/cartdetailsget");
           const valss = response.data.vals;
           setItems(valss);
           //console.log(response.data.vals);

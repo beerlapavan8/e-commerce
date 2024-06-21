@@ -8,7 +8,7 @@ const CartCardSubFile = (props) => {
   {
     const id =  e.target.value
     try {
-      const strv = await axios.delete(`http://localhost:5000/cartdelete/${id}`)
+      const strv = await axios.delete(`https://e-commerce-phok.onrender.com/cartdelete/${id}`)
       console.log(strv.data)
       props.removeItem(id);
       navigate("/hello")

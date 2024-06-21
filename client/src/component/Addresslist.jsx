@@ -12,7 +12,7 @@ const Addresslist = () => {
         {
             
             try {
-                const response = await axios.get("http://localhost:5000/addressallget")
+                const response = await axios.get("https://e-commerce-phok.onrender.com/addressallget")
                 const str = response.data
                 setUsers(str);
                 // console.log(str)
