@@ -72,40 +72,84 @@ const[address,setAddress]=useState([]);
 
   
 
+  // const makePayment = async () => {
+  //   const stripe = await loadStripe("pk_test_51PRTW4BhTY1CGwmEfKfLnLLh3xl06sDZqAjR9YEy8KmuIxMsHm7crhxjyQGdle9eJdlMiHvaHi967mwKxkTUUb0W00T218uTYA");
+
+  //   const body = {
+  //     products: cartItems
+  //   }
+  //   const headers = {
+  //     "Content-Type": "application/json"
+  //   }
+  //   const response = await fetch("https://e-commerce-phok.onrender.com/create-checkout-session", {
+  //     method: "POST",
+  //     headers: headers,
+  //     body: JSON.stringify(body)
+  //   });
+
+  //   const session = await response.json();
+
+  //   const result = stripe.redirectToCheckout({
+  //     sessionId: session.id
+  //   });
+
+  //   if (result.error) {
+  //     console.log(result.error);
+  //   }
+  //   const resp = await axios.post("http://localhost:5000/orderpost", {
+  //     cartItems
+  //   })
+
+  //   cartItems.forEach(async (a) => {
+  //     console.log(a._id)
+  //     const val = a._id
+  //     const reps = await axios.delete(`http://localhost:5000/deletecartitems/${val}`)
+  //   })
+  // }
   const makePayment = async () => {
     const stripe = await loadStripe("pk_test_51PRTW4BhTY1CGwmEfKfLnLLh3xl06sDZqAjR9YEy8KmuIxMsHm7crhxjyQGdle9eJdlMiHvaHi967mwKxkTUUb0W00T218uTYA");
 
     const body = {
       products: cartItems
-    }
+    };
     const headers = {
       "Content-Type": "application/json"
+    };
+    try {
+        const response = await fetch("https://e-commerce-phok.onrender.com/create-checkout-session", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body)
+        });
+
+        const session = await response.json();
+
+        if (!session.id) {
+            throw new Error("Session ID not returned from backend.");
+        }
+
+        const result = await stripe.redirectToCheckout({
+          sessionId: session.id
+        });
+
+        if (result.error) {
+          console.log(result.error.message);
+        }
+
+        const resp = await axios.post("http://localhost:5000/orderpost", {
+          cartItems
+        });
+
+        for (const item of cartItems) {
+          console.log(item._id);
+          const val = item._id;
+          await axios.delete(`http://localhost:5000/deletecartitems/${val}`);
+        }
+    } catch (error) {
+        console.error("Error during payment process:", error);
     }
-    const response = await fetch("https://e-commerce-phok.onrender.com/create-checkout-session", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body)
-    });
+};
 
-    const session = await response.json();
-
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id
-    });
-
-    if (result.error) {
-      console.log(result.error);
-    }
-    const resp = await axios.post("http://localhost:5000/orderpost", {
-      cartItems
-    })
-
-    cartItems.forEach(async (a) => {
-      console.log(a._id)
-      const val = a._id
-      const reps = await axios.delete(`http://localhost:5000/deletecartitems/${val}`)
-    })
-  }
 
   return (
     <div>

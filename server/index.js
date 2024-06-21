@@ -369,6 +369,39 @@ app.put("/productupdate/:id",async(req,res)=>{
 
 
 //-----------------------------------------
+// app.post("/create-checkout-session", async (req, res) => {
+//     try {
+//         const products = req.body.products;
+//         // console.log(products)
+
+//         const lineItems = products.map((product) => ({
+//             price_data: {
+//                 currency: "inr",
+//                 product_data: {
+//                     name: product.productname,
+//                     images: [product.image] // Uncomment and use if you have product images
+//                 },
+//                 unit_amount: product.productprice * 100,
+//             },
+//             quantity: product.quantity || 1, // Ensure you handle quantity
+//         }));
+
+//         const session = await stripe.checkout.sessions.create({
+//             payment_method_types: ["card"],
+//             line_items: lineItems,
+//             mode: "payment",
+            
+//             success_url: "https://e-commerce-three-coral.vercel.app/delivery",
+//             cancel_url: "https://e-commerce-three-coral.vercel.app/product",
+//         });
+
+//         res.json({ id: session.id });
+//     } catch (error) {
+//         console.error("Error creating checkout session:", error);
+//         res.status(500).json({ error: "Internal Server Error" });
+//     }
+// });
+
 app.post("/create-checkout-session", async (req, res) => {
     try {
         const products = req.body.products;
@@ -401,6 +434,7 @@ app.post("/create-checkout-session", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
 
 
 
